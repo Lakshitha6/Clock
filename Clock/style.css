@@ -1,0 +1,115 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    color: whitesmoke;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: black;
+}
+
+.container{
+    position: relative;
+}
+
+.clock{
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background-color: black;
+    border: 2px solid black;
+    box-shadow: 1px 2px 4px 4px #38da0b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.clock span{
+    position: absolute;
+    transform: rotate(calc(30deg * var(--i))); 
+    inset: 12px;
+    text-align: center;
+}
+
+.clock span b{
+    transform: rotate(calc(-30deg * var(--i)));
+    display: inline-block;
+    font-size: 1.5rem;
+}
+
+.clock::before{
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #fff;
+    z-index: 2;
+}
+
+.hand{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+.hand i{
+    position: absolute;
+    background-color: var(--clr);
+    width: 5px;
+    height: var(--h);
+    border-radius: 8px;
+    z-index: 11;
+}
+
+.digital{
+    display: flex;
+    font-size: 3rem;
+    justify-content: center;
+    margin-top: 10%;
+    border: 3px solid greenyellow;
+    box-shadow: 1px 2px 4px 4px green;
+    padding: 1%;
+}
+
+section{
+    display: flex;
+    flex-direction: column;
+}
+
+/*-----------------------------Respnosive--------------------*/
+
+@media screen and (max-width: 400px){
+
+    .clock{
+        width: 280px;
+        height: 280px;
+    }
+    
+    #sec i{
+        height: 125px;
+    }
+
+    #min i{
+        height: 105px;
+    }
+
+    #hour i{
+        height: 75px;
+    }
+
+    body{
+        overflow: hidden;
+    }
+
+    .digital{
+        font-size: 2rem;
+    }
+}
